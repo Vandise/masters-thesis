@@ -1,0 +1,130 @@
+
+% ----------------------------------------------------------------------
+%                   LATEX TEMPLATE FOR PhD THESIS
+% ----------------------------------------------------------------------
+
+% based on Harish Bhanderi's PhD/MPhil template, then Uni Cambridge
+% http://www-h.eng.cam.ac.uk/help/tpl/textprocessing/ThesisStyle/
+% corrected and extended in 2007 by Jakob Suckale, then MPI-CBG PhD programme
+% and made available through OpenWetWare.org - the free biology wiki
+
+
+%: Style file for Latex
+% Most style definitions are in the external file PhDthesisPSnPDF.
+% In this template package, it can be found in ./Latex/Classes/
+\documentclass[twoside,11pt]{Latex/Classes/PhDthesisPSnPDF}
+
+
+%: Macro file for Latex
+% Macros help you summarise frequently repeated Latex commands.
+% Here, they are placed in an external file /Latex/Macros/MacroFile1.tex
+% An macro that you may use frequently is the figuremacro (see introduction.tex)
+\include{Latex/Macros/MacroFile1}
+
+
+
+%: ----------------------------------------------------------------------
+%:                  TITLE PAGE: name, degree,..
+% ----------------------------------------------------------------------
+% below is to generate the title page with crest and author name
+
+%if output to PDF then put the following in PDF header
+\ifpdf  
+    \pdfinfo { /Title  (PhD and MPhil Thesis Classes)
+               /Creator (TeX)
+               /Producer (pdfTeX)
+               /Author (YourName your@email.net)
+               /CreationDate (D:YYYYMMDDhhmmss)  %format D:YYYYMMDDhhmmss
+               /ModDate (D:YYYYMMDDhhmm)
+               /Subject (xyz)
+               /Keywords (add, your, keywords, here) }
+    \pdfcatalog { /PageMode (/UseOutlines)
+                  /OpenAction (fitbh)  }
+\fi
+
+
+\title{Automated Privacy Compliance Auditing as a Service}
+
+
+
+% ----------------------------------------------------------------------
+% The section below defines www links/email for author and institutions
+% They will appear on the title page of the PDF and can be clicked
+\ifpdf
+  \author{\href{mailto:band614@uwsp.edu}{Benjamin J. Anderson}}
+  \collegeordept{\href{https://uwsp.edu}{University of Wisconsin - Stephens Point}}
+  \university{\href{https://uwsp.edu}{Stephens Point, Wisconsin}}
+
+  % The crest is a graphics file of the logo of your research institution.
+  % Place it in ./0_frontmatter/figures and specify the width
+  \crest{\includegraphics[width=4cm]{logo}}
+  
+% If you are not creating a PDF then use the following. The default is PDF.
+\else
+  \author{Benjamin J. Anderson}
+  \collegeordept{University of Wisconsin - Stephens Point}
+  \university{Stephens Point, Wisconsin}
+  \crest{\includegraphics[width=4cm]{logo}}
+\fi
+
+%\renewcommand{\submittedtext}{change the default text here if needed}
+\degree{Master Of Science}
+\degreedate{Decemeber 2020}
+
+
+% ----------------------------------------------------------------------
+       
+% turn of those nasty overfull and underfull hboxes
+\hbadness=10000
+\hfuzz=50pt
+
+%: --------------------------------------------------------------
+%:                  FRONT MATTER: dedications, abstract,..
+% --------------------------------------------------------------
+
+\begin{document}
+
+%\language{english}
+
+% sets line spacing
+\renewcommand\baselinestretch{1.2}
+\baselineskip=18pt plus1pt
+
+
+%: ----------------------- generate cover page ------------------------
+
+\maketitle  % command to print the title page with above variables
+
+\include{0_frontmatter/dedication}
+
+%: ----------------------- contents ------------------------
+
+\setcounter{secnumdepth}{1} % organisational level that receives a numbers
+\setcounter{tocdepth}{1}    % print table of contents for level 3
+\tableofcontents            % print the table of contents
+
+%\listoffigures	% print list of figures
+%\listoftables  % print list of tables
+
+%: --------------------------------------------------------------
+%:                  MAIN DOCUMENT SECTION
+% --------------------------------------------------------------
+
+%\makeatletter
+%\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+%\makeatother
+
+\mainmatter
+
+
+%: --------------------------------------------------------------
+
+
+\include{1_executive_summary/main}
+
+%: --------------------------------------------------------------
+
+\include{2_general_company_description/main}
+\include{2_general_company_description/mission_statement}
+
+\end{document}

@@ -1,0 +1,17 @@
+*.dvi
+.DS_Store
+*.bbl
+*.nls
+*.out
+*.pdf
+*.gz
+*.lot
+*.lof
+*.brf
+*.blg
+*.aux
+*.log
+*.nlo
+*.toc
+.xvpics/
+layout/
