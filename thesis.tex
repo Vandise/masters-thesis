@@ -69,11 +69,11 @@
 
 %\renewcommand{\submittedtext}{change the default text here if needed}
 \degree{Master Of Science}
-\degreedate{Decemeber 2020}
+\degreedate{December  2020}
 
 
 % ----------------------------------------------------------------------
-       
+
 % turn of those nasty overfull and underfull hboxes
 \hbadness=10000
 \hfuzz=50pt
@@ -81,6 +81,8 @@
 %: --------------------------------------------------------------
 %:                  FRONT MATTER: dedications, abstract,..
 % --------------------------------------------------------------
+
+%: --------------------------------------------------------------
 
 \begin{document}
 
@@ -125,6 +127,10 @@
 %: --------------------------------------------------------------
 
 \include{2_general_company_description/main}
-\include{2_general_company_description/mission_statement}
+
+\bibliographystyle{ieeetr}
+\renewcommand{\bibname}{References}
+
+\bibliography{10_backmatter/references}
 
 \end{document}
