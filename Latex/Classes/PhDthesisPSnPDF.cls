@@ -49,12 +49,14 @@
 \usepackage[english]{babel}
 \usepackage[usenames, dvipsnames]{color}
 \usepackage[perpage]{footmisc}
-\usepackage[round, sort, numbers]{natbib}
+%\usepackage[round, sort, numbers]{natbib}
+%\usepackage[backend=bibtex,style=verbose-trad2]{biblatex}
 \usepackage{ifthen}
 \usepackage{multicol} % for pages with multiple text columns, e.g. References
 \setlength{\columnsep}{20pt} % space between columns; default 10pt quite narrow
 \usepackage[nottoc]{tocbibind} % correct page numbers for bib in TOC, nottoc suppresses an entry for TOC itself
 %\usepackage{nextpage}
+
 
 %:-------------------------- Glossary/Abbrev./Symbols -----------------------
 
@@ -115,7 +117,7 @@
                  bookmarksnumbered = true,
                  breaklinks = true,
                  linktocpage,
-                 pagebackref,
+                 %pagebackref,
                  colorlinks = false,  % was true
                  linkcolor = blue,
                  urlcolor  = blue,
@@ -153,6 +155,8 @@
 \fi
 
 
+\usepackage{apacite}
+
 %:-------------------------- page layout -----------------------
 
 %A4 settings
@@ -175,9 +179,12 @@
 \setlength{\evensidemargin}{0.5cm}
 
 \setlength{\topmargin}{1mm}
-\setlength{\headheight}{1.36cm}
-\setlength{\headsep}{1.00cm}
-\setlength{\textheight}{20.84cm}
+%\setlength{\headheight}{1.36cm}
+\setlength{\headheight}{0.25cm}
+%\setlength{\headsep}{1.00cm}
+\setlength{\headsep}{0.00cm}
+%\setlength{\textheight}{22.84cm}
+\setlength{\textheight}{23.0cm}
 \setlength{\textwidth}{15.5cm}
 \setlength{\marginparsep}{1mm}
 \setlength{\marginparwidth}{3cm}
@@ -417,6 +424,6 @@ Requirements for the Degree Of
 \titleformat{\chapter}
 {\normalfont\Huge\bfseries}
 {\thechapter}{0.75em}{}
-\titlespacing*{\chapter}{0pt}{-100pt}{20pt}
+\titlespacing*{\chapter}{0pt}{-50pt}{20pt}
 
 \renewcommand{\chaptername}{} % uncomment to print only "1" not "Chapter 1"
