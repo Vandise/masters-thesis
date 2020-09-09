@@ -155,7 +155,7 @@
 \fi
 
 
-\usepackage{apacite}
+\usepackage[nosectionbib]{apacite}
 
 %:-------------------------- page layout -----------------------
 
@@ -427,3 +427,4 @@ Requirements for the Degree Of
 \titlespacing*{\chapter}{0pt}{-50pt}{20pt}
 
 \renewcommand{\chaptername}{} % uncomment to print only "1" not "Chapter 1"
+
