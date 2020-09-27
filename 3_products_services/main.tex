@@ -1,6 +1,6 @@
 {\let\cleardoublepage\relax \chapter{Products and Services}}
 
-{\let\clearpage\relax \section{Description of Products and Services}}
+\section{Description of Products and Services}
 
 Cereus aims to become the leader in cutting-edge privacy compliance auditing tools. These tools will assist our customers to quickly and efficiently identify privacy and compliance issues on their websites. Most of Cereus's solutions will be offered as software-as-a-service, though professional services will also be available.
 
@@ -12,7 +12,7 @@ Cereus's professional services will serve a less technical clientele or those re
 
 The Cereus compliance auditing system is a series of processes configured by the user to ensure their websites meet the compliance standards that they have defined. It can be configured to scan per the businesses development cycle, automatically through the API services, or manually through the Cereus user interface. There are five main components to the compliance auditing system: the confirmation system, crawler, rules validator, report, and recommendation engine.
 
-{\let\clearpage\relax \subsubsection{Confirmation System}}
+\subsubsection{Confirmation System}
 
 The Cereus confirmation system, Figure \ref{3_products_services/figures/confirmation_system}, prevents organizations from conducting audits on domains that they do not own or manage. This will ensure Cereus's customers cannot use the auditor to evaluate their competitors websites and privacy practices. When a new property (website) is added through the Cereus user interface, the user will be guided through a series of processes to confirm ownership of the domain before conducting an audit is authorized. This process is dependent on the plan the customer is subscribed to. Any attempt to scan an unconfirmed domain will be rejected.
 
@@ -24,7 +24,26 @@ In the event the property on the free tier expires or is sold, Cereus will no lo
 
 All additional tiers offer unrestricted access to Cereus's services, which can provide insights into the privacy operations of the company. To confirm ownership of the property, a TXT DNS record defined by Cereus's systems will be provided to the client. In the event a domain is acquired by a new party, through the sale or expiration of the domain, Cereus will lock access to previous reports and disable auditing services when the TXT DNS record is no longer present. The initial client who set up the domain in Cereus will be notified of the change and can re-validate if the DNS record was removed by mistake.
 
-{\let\clearpage\relax \subsubsection{Crawler}}
+\subsubsection{Crawler}
 
+The Cereus crawler is a highly configurable network and cookie monitor that extracts information from websites. This includes all network traffic, cookies set on the page, call-trace information, performance data, request type, response status codes, headers, and redirect flags. This data is then processed by the rules validator and aggregated by the report generator. Cereus can then make recommendations on actions to take based on the audit.
 
+\subsubsection*{Configuration}
 
+The crawler can be configured by the client to automatically scan a website based on the company's software release schedule. Once the data has been processed by the rules validator and the report has been generated, the customer will receive an email notification with the audit report. Audits may also be conducted manually through the Cereus user interface or triggered through the API services.
+
+Cereus's customers may also specify a geographic location for which the crawler will originate from. Depending on the geographic location of the visitor, privacy regulations can differ and the company may apply a different set of business rules. Running the crawler in a targeted geographic location allows Cereus's customers to validate their website's behaviors.
+
+\subsubsection*{Data Extraction and Transformation}
+
+The network and cookie data are extracted in a semi-structured format that can be translated to a flat SQL tables for processing by the report generator. Data received by the proxy server can be consolidated with debug information sent by the browser. Figure \ref{3_products_services/figures/data_transform} outlines the data collection and transformation process.
+
+The crawler captures the requested URL for users to construct rules on the domains, locations, and query parameter. The requested URL is broken down into the requested protocol, domain, path, query, and location hash. This fragmentation will significantly reduce the amount of processing required by the rules and recommendation engines. It also allows customers to optimize their reports by establishing aggregation or exclusion rules based on part of the URL. In the instance data is sent to the server, for example, in a POST request: the data is converted to a HashMap and stored as JSON in the metadata column.
+
+All request and response header information, depending on the browser meta event, is formatted as JSON and stored in the headers column. Signals such as the Do Not Track header signal (DNT) can be sent from the browser to indicate that the user would prefer privacy rather than personalized content \cite{mdn.2020}. Site partners may respond to the DNT header, or some other setting, that the customer can monitor with the Cereus rules engine.
+
+\figuremacrorotate{3_products_services/figures/data_transform}{Crawler data transformation}{The extraction and transformation of data received by the Cereus crawler.}{1}
+
+\subsubsection{Notifications and Alarms}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum

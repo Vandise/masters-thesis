@@ -24,6 +24,15 @@
 	\end{figure}
 }
 
+\newcommand{\figuremacrorotate}[4]{
+\begin{sidewaysfigure}
+    \centering
+    \includegraphics[width=#4\textwidth]{#1}  
+    \caption[#2]{\textbf{#2} - #3}
+    \label{#1}
+\end{sidewaysfigure}
+}
+
 % inserts a figure with wrapped around text; only suitable for NARROW figs
 % o is for outside on a double paged document; others: l, r, i(inside)
 % text and figure will each be half of the document width

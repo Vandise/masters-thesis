@@ -57,7 +57,6 @@
 \usepackage[nottoc]{tocbibind} % correct page numbers for bib in TOC, nottoc suppresses an entry for TOC itself
 %\usepackage{nextpage}
 
-
 %:-------------------------- Glossary/Abbrev./Symbols -----------------------
 
 \usepackage[intoc]{nomencl} % load nomencl extension; include in TOC
@@ -418,7 +417,10 @@ Requirements for the Degree Of
 %	\setcounter{page}{1}
 %	\renewcommand{\thepage}{\roman{page}}
 %} % close romanpage env't
- 
+
+\usepackage{rotating}
+\usepackage{tikz}
+
 {\newpage\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}}
 
 \titleformat{\chapter}
