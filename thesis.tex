@@ -115,9 +115,7 @@
 
 \mainmatter
 
-
 %: --------------------------------------------------------------
-
 
 
 \include{1_executive_summary/main}
@@ -126,9 +124,14 @@
 
 \include{2_general_company_description/main}
 
+%: --------------------------------------------------------------
+
+\include{3_products_services/main}
+
+{\let\cleardoublepage\clearpage \listoffigures}
 
 \bibliographystyle{apacite}
 
-\bibliography{10_backmatter/references}
+{\let\cleardoublepage\clearpage \bibliography{10_backmatter/references}}
 
 \end{document}
