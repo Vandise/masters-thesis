@@ -6,30 +6,25 @@ Cereus aims to become the leader in cutting-edge privacy compliance auditing too
 
 \subsection{Professional Services}
 
-Cereus's professional services will serve a less technical clientele or those requiring guidance on privacy regulations applicable to their operations. Cereus will consult configuration the client to identify the best plan for the client and assist with the configuration of Cereus's tools to reflect the client's needs. Training services for Cereus's products will also be available.
+Cereus's professional services will serve a less technical clientele or those requiring guidance on privacy regulations applicable to their operations. Cereus will consult configuration the client to identify the best plan for the client and assist with the configuration of Cereus's tools to reflect the client's needs. Training services for Cereus's products will also be provided.
 
 \subsection{Compliance Auditing}
 
+The Cereus compliance auditing system is a series of processes configured by the user to ensure their websites meet the compliance standards that they have defined. It can be configured to scan per the businesses development cycle, automatically through the API services, or manually through the Cereus user interface. There are five main components to the compliance auditing system: the confirmation system, crawler, rules validator, report, and recommendation engine.
+
+{\let\clearpage\relax \subsubsection{Confirmation System}}
+
+The Cereus confirmation system, Figure \ref{3_products_services/figures/confirmation_system}, prevents organizations from conducting audits on domains that they do not own or manage. This will ensure Cereus's customers cannot use the auditor to evaluate their competitors websites and privacy practices. When a new property (website) is added through the Cereus user interface, the user will be guided through a series of processes to confirm ownership of the domain before conducting an audit is authorized. This process is dependent on the plan the customer is subscribed to. Any attempt to scan an unconfirmed domain will be rejected.
+
+The free tier is a highly restricted plan that limits the capabilities of the auditor. This tier is intended for less technical website administrators running a small website through a content management system (CMS). For initial confirmation of ownership of the domain, free tier users will be required to own an email address associated with the domain they are requesting to audit. In many instances, an email such as "webadmin@example.com" are dedicated to the management of the domain. Once the customer creates the property in the Cereus user interface, they can then request a validation email be sent to their inbox with a confirmation link. When confirmed, the customer will be provided an HTML metadata tag to be included on the pages they would like to be scanned.
+
+In the event the property on the free tier expires or is sold, Cereus will no longer be able to audit the website due to the metadata tags not being present on the site. 
+
+\figuremacro{3_products_services/figures/confirmation_system}{Property confirmation system}{The Cereus website confirmation system to ensure the organization owns the domain prior to scanning.}
+
+All additional tiers offer unrestricted access to Cereus's services, which can provide insights into the privacy operations of the company. To confirm ownership of the property, a TXT DNS record defined by Cereus's systems will be provided to the client. In the event a domain is acquired by a new party, through the sale or expiration of the domain, Cereus will lock access to previous reports and disable auditing services when the TXT DNS record is no longer present. The initial client who set up the domain in Cereus will be notified of the change and can re-validate if the DNS record was removed by mistake.
+
+{\let\clearpage\relax \subsubsection{Crawler}}
 
 
-\subsection{Notifications and Alarms}
 
-\subsection{API Services}
-
-\section{Competitive Advantages and Disadvantages, Company Strengths, and Core Competencies}
-
-\subsection{Unfair Advantage}
-
-\section{Pricing Structure}
-
-\subsection{Free}
-
-\subsection{Standard}
-
-\subsection{Professional}
-
-\subsection{Enterprise}
-
-\section{Industry Background}
-
-\section{Target Market Segment}
