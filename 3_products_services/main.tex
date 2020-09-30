@@ -56,12 +56,35 @@ These rules, by default, are set at an organizational scope. All properties unde
 
 \subsubsection{Reporting}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+The Cereus audit report formats the network traffic and associated cookies in a clean, tabular, format. This initial overview provides insights into the requests made on the site, response status code, the type, size of the information exchanged, the amount of time for the request to complete, and whether or not the request met compliance expectations (Figure \ref{3_products_services/figures/sample_report}). Any information that has no data or rules associated with it appears as a question mark (?) icon.
+
+Each row can be broken down to dive into the information associated with the request. The deep dive includes the headers associated with the request, a cache of the original rules associated with the request (and their validation status), query parameters, data sent to the server, cookies, and the initialization chain. Web administrators and compliance managers will be able to quickly reference the audit report and identify where the compliance infringement originated.
+
+\figuremacrorotate{3_products_services/figures/sample_report}{Cereus audit report}{The Cereus audit report provides clean, familiar, interface for privacy compliance teams.}{1}
+
+The report filters can be used to dynamically query information from it. Users can check for specific URLs, whether or not requests were compliant, the associated category with a URL, or the page in which the information was found. Customers will receive a notification when the audit identifies requests out of compliance and can use the filter functionality to quickly pull up the request and rules information. 
 
 \subsubsection{Recommendation Engine}
+
+Cereus can make suggestions for requests and cookies that have yet to be classified by the organization. This classification system is powered by the categorizations of requests and cookies by other organizations. The system will also crawl the domains, paths, and cookie hosts to grab meta information to improve the accuracy of the recommendations. A risk score will also be assigned to the requests and cookies based on whether or not other organizations have flagged it as necessary to their operations.
+
+\subsubsection*{Risk Score}
+
+When a new request or cookie is identified on a website, through an initial or later scan, an associated risk score with allowing it to load in a list of geographic locations. This score is merely a suggestion based on the operations of other organizations and no action needs to be taken.
+
+\[ s_{risk} = \frac{r_n}{R} \]
+
+The risk score is computed as the number of records classified as necessary \( r_n \) divided by the total number of records \( R \). This will always result in a ratio between 0 and 1 in which intervals of \(\frac{1}{3}\) will determine if the request will be rated as: low, intermediate, or high risk.
+
+To reduce the possibility of organizations incorrectly flagging a request due to the scoring system, the risk score will only be provided when a sample size of at least 20 organizations have classified the request or cookie.
+
+\subsubsection*{Categorization Recommendation}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 
 \subsection{Notifications and Alarms}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+
+
+
