@@ -80,7 +80,15 @@ To reduce the possibility of organizations incorrectly flagging a request due to
 
 \subsubsection*{Categorization Recommendation}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+Cereus will provide categorization recommendations for requests and cookies based on meta information extracted from the request or cookie's origin. The recommendation engine will also incorporate organization classification information pertaining to the request or cookie. Classification within Cereus's internal systems are expected to be single words or small phrases, much like meta tag information present on a web page. This information can best be represented as a bag of words. There's no context to meta tag data or the collection of classifications entered by users, so the representation of language or order has no meaning \cite{manning.2008}.
+
+The recommendation engine is powered by a Bernoulli document model. This model takes a document and partitions it into a feature vector of binary elements. If a word is found in the document, it will receive a value of 1, otherwise 0. This document model does not take into account the frequency of a word, but whether or not the word is present. This allows us to calculate the probability of a word occurring in a document with a specific classification, as well as taking into account the probability of it not occurring.
+
+We'll let \(\hat{P}(w_{t}|C_{k})\) define the estimated probability that the word \(w_{t}\) occurs in a document, \(D\), with the classification (\(C\)) \(k\). The estimated probability that the word \(w_{t}\) not occurring is \(1 - \hat{P}(w_{t}|C_{k})\). \(V\) will represent our models vocabulary and \(v\) consist of the feature vector of our document. The product of the probability of each item (\(i\)) in our feature vector occurring or not occurring will determine the overall estimated probability of our document being classified as class \(k\) (\(\hat{P}(v|C_{k})\)).
+
+\[
+  \hat{P}(D|C_{k}) = \prod_{i=1}^{V}[v_{i}\hat{P}(w_{t}|C_{k}) + (1 - v_{i})(1 - \hat{P}(w_{t}|C_{k}))]
+\]
 
 \subsection{Notifications and Alarms}
 
