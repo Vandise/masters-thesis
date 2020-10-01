@@ -84,15 +84,68 @@ Cereus will provide categorization recommendations for requests and cookies base
 
 The recommendation engine is powered by a Bernoulli document model. This model takes a document and partitions it into a feature vector of binary elements. If a word is found in the document, it will receive a value of 1, otherwise 0. This document model does not take into account the frequency of a word, but whether or not the word is present. This allows us to calculate the probability of a word occurring in a document with a specific classification, as well as taking into account the probability of it not occurring.
 
-We'll let \(\hat{P}(w_{t}|C_{k})\) define the estimated probability that the word \(w_{t}\) occurs in a document, \(D\), with the classification (\(C\)) \(k\). The estimated probability that the word \(w_{t}\) not occurring is \(1 - \hat{P}(w_{t}|C_{k})\). \(V\) will represent our models vocabulary and \(v\) consist of the feature vector of our document. The product of the probability of each item (\(i\)) in our feature vector occurring or not occurring will determine the overall estimated probability of our document being classified as class \(k\) (\(\hat{P}(v|C_{k})\)).
+To save reduce the computational power required to provide recommendations, the model calculates estimated probabilities for a request or cookie belonging to a category.
+
+We'll let \(\hat{P}(w_{t}|C_{k})\) define the estimated probability that the word \(w_{i}\) occurs in a document, \(D\), with the classification (\(C\)) \(k\). The estimated probability that the word \(w_{i}\) not occurring is \(1 - \hat{P}(w_{i}|C_{k})\). \(V\) will represent our models vocabulary and \(v\) consist of the feature vector of our document. The product of the probability of each item (\(i\)) in our feature vector occurring or not occurring will determine the overall estimated probability of our document being classified as class \(k\) (\(\hat{P}(v|C_{k})\)).
 
 \[
-  \hat{P}(D|C_{k}) = \prod_{i=1}^{V}[v_{i}\hat{P}(w_{t}|C_{k}) + (1 - v_{i})(1 - \hat{P}(w_{t}|C_{k}))]
+  \hat{P}(D|C_{k}) = \prod_{i=1}^{V}[v_{i}\hat{P}(w_{i}|C_{k}) + (1 - v_{i})(1 - \hat{P}(w_{i}|C_{k}))]
+\]
+
+There are two parameters for this model: the probabilities of each word in the document class (\(\hat{P}(w_{i}|C_{k})\)) and its prior probabilities \(P(C_{k})\). We can estimate probability that a word \(w_{i}\) occurs in a document is the number of documents \(n\) classified as \(k\) divided by the total number of documents \(N\) classified as \(k\).
+
+\[
+  \hat{P}(w_{i}|C_{k}) = \frac{n_{k}}{N_{k}}
+\]
+
+Where the prior probability of class \(k\) can be estimated as the relative frequency of documents containing class \(k\).
+
+\[
+  \hat{P}(C_{k}) = \frac{N_{k}}{N}
 \]
 
 \subsection{Notifications and Alarms}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 
+\subsection{API Services}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+
+\section{Competitive Advantages and Disadvantages, Company Strengths, and Core Competencies}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+
+\subsection{Unfair Advantage}
+
+Todo.
+
+\section{Pricing Structure}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+
+\subsection{Free}
+
+Todo.
+
+\subsection{Standard}
+
+Todo.
+
+\subsection{Professional}
+
+Todo.
+
+\subsection{Enterprise}
+
+Todo.
+
+\section{Industry Background}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+
+\section{Target Market Segment}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 
 
