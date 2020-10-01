@@ -95,7 +95,7 @@ We'll let \(\hat{P}(w_{t}|C_{k})\) define the estimated probability that the wor
 There are two parameters for this model: the probabilities of each word in the document class (\(\hat{P}(w_{i}|C_{k})\)) and its prior probabilities \(P(C_{k})\). We can estimate probability that a word \(w_{i}\) occurs in a document is the number of documents \(n\) classified as \(k\) divided by the total number of documents \(N\) classified as \(k\).
 
 \[
-  \hat{P}(w_{i}|C_{k}) = \frac{n_{k}}{N_{k}}
+  \hat{P}(w_{i}|C_{k}) = \frac{n_{k}(w_{i})}{N_{k}}
 \]
 
 Where the prior probability of class \(k\) can be estimated as the relative frequency of documents containing class \(k\).
