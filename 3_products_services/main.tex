@@ -104,6 +104,8 @@ Where the prior probability of class \(k\) can be estimated as the relative freq
   \hat{P}(C_{k}) = \frac{N_{k}}{N}
 \]
 
+The output of the model will be an array of estimated probabilities. Each probability in the array is associated with a category defined within Cereus's system. The category with the highest probability is recommended to the user.
+
 \subsection{Notifications and Alarms}
 
 Users can configure Cereus to notify the specified stakeholders in the event that an audit discovers new requests or cookies, compliance checks fail, or when a new scan is scheduled. To reduce the likelihood of users ignoring these notifications, they can be configured on an organizational level or per property. These settings ensure that notifications are sent only to the relative parties and reduce email clutter.
