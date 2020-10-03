@@ -106,11 +106,19 @@ Where the prior probability of class \(k\) can be estimated as the relative freq
 
 \subsection{Notifications and Alarms}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+Users can configure Cereus to notify the specified stakeholders in the event that an audit discovers new requests or cookies, compliance checks fail, or when a new scan is scheduled. To reduce the likelihood of users ignoring these notifications, they can be configured on an organizational level or per property. These settings ensure that notifications are sent only to the relative parties and reduce email clutter.
 
 \subsection{API Services}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+Professional and Enterprise customers may use Cereus's application programming interface (API) services to automate their privacy operations. Customers who actively curate new content, use a continuous integration (CI) system to control website deployments, or may not follow a strict deployment schedule can use the API to integrate Cereus into their daily business processes.
+
+\subsubsection*{Crawl Requests}
+
+The crawl request endpoint allows customers to trigger a crawl against a property. By default, this will scan all paths defined on the property. Users also have the option to specify the path(s) they would like to crawl in the event they want to target only new or updated pages.
+
+\subsubsection*{Web Hooks}
+
+When an audit has completed, it will notify stakeholders stating whether or not compliance checks were successful. Cereus can also notify other computer systems. Through web hooks, customers are able to configure Cereus to send audit status messages to their computer systems. The customer can then process the message and take action against the messages.
 
 \section{Competitive Advantages and Disadvantages, Company Strengths, and Core Competencies}
 
