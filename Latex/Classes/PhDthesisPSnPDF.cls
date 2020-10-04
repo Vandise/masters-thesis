@@ -420,6 +420,12 @@ Requirements for the Degree Of
 
 \usepackage{rotating}
 \usepackage{tikz}
+\usepackage{pifont}
+\usepackage{adjustbox}
+\usepackage{tabularx}
+
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
 
 {\newpage\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}}
 
