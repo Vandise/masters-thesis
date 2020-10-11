@@ -234,7 +234,7 @@
 % bug: cover i + back side ii and then numbering restarts with i; should be iii
 \renewcommand{\thepage}{\roman{page}}
 
-\newcommand{\submittedtext}{{A Thesis Submitted in Partial Fulfillment of the
+\newcommand{\submittedtext}{{A Thesis Submitted in Fulfillment of the
 Requirements for the Degree Of
 }}
 
