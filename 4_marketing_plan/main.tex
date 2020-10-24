@@ -209,17 +209,94 @@ TODO Chapter 2
 
 \subsection{Operational Costs}
 
-https://calculator.aws
+Operational costs are broken into two categories: infrastructure and administration. Infrastructure includes all technology requirements to support operations. Administration includes expenses pertaining to wages, marketing, accounting, and professional services.
 
-aws a1.medium spot instance: 0.0049/hr ( scan servers )
-aws a1.medium reserved instance: 0.0255 ( api servers )
-aws s3 standard ( up to 50tb), 0.023/gb
-aws cloudfront ( first 10tb ), 0.085/gb
-aws NAT gateway: 0.045/hr + 0.045/gb
-aws RDS on demand ( multi-az db.t3.small ): 0.072/hr
-aws elasticache (t3.small): (0.034/hr) 
-aws loadbalancer (api): 0.025/hr + 0.008/gb
-aws route53: 0.50 + 0.40/mil queries (up to 1 billion)
+
+\subsubsection{Infrastructure Costs}
+
+Cereus will manage its infrastructure through Amazon Web Services (AWS). AWS offers an alternative solution to physical infrastructure management at a competitive rate. For minimum operations, Cereus will require the following services from Amazon:
+
+\begin{itemize}
+
+\item \textbf{1 A1.Medium Spot Instance}
+
+The scan servers to collect information from our customer's websites can be reserved spot instances that operate only on demand. These servers come at a discounted rate, but introduce some latency between a customer's audit request and its completion.
+
+Pricing can be calculated with the following formula where \( t \) is time in hours and \( n_{a1s} \) is the number of servers:
+
+\[ Scan_{cost} = 0.0049tn_{a1s} \]
+
+\item \textbf{2 A1.Medium Reserved Instances}
+
+Cereus operates on a client-server model, in which the client will operate as "serverless" through S3 and a CDN. The API services for server portion must be available at all times with limited latency. This comes at an additional cost in contrast to spot instances, but will ensure our customers can request information on-demand. 
+
+Pricing can be calculated with the following formula where \( t \) is time in hours and \( n_{a1r} \) is the number of servers:
+
+\[ Api_{cost} = 0.0255tn_{a1r} \]
+
+\item \textbf{2 S3 buckets}
+
+All audit information will be stored in a private Amazon S3 bucket. Cereus's landing page and user interface will be hosted through S3 as well.
+
+Pricing can be calculated with the following formula where \( g_{s3} \) is the size of all S3 buckets in gigabytes (for the first 50 terabytes):
+
+\[ S3_{cost} = 0.023g_{s3} \]
+
+\item \textbf{1 Cloudfront Instance Across All Edge Locations}
+
+Cloudfront will serve as our CDN layer for our landing page and user interface. This will significantly reduce the latency of serving content to our customers.
+
+Pricing can be calculated with the following formula where \( g_{cf} \) is the size of all traffic in gigabytes (for the first 10 terabytes):
+
+\[ CF_{cost} = 0.085g_{cf} \]
+
+\item \textbf{1 Network Address Translation Gateway (NAT)}
+
+To protect our proprietary technologies and customer's data, Cereus's services will primarily reside in a private network within AWS. The NAT will allow our internal network to communicate with the internet. 
+
+Pricing can be calculated with the following formula where \( g_{nat} \) is the size of all traffic in gigabytes and \( t \) is the total time in hours:
+
+\[ NAT_{cost} = 0.045t + 0.045g_{nat} \]
+
+\item \textbf{1 Replicated Postgres Instance}
+
+Cereus will store its customer information and configurations in a postgres database. Data will be replicated across two instances for high availability.
+
+Pricing can be calculated with the following formula where \( t \) is the total time in hours:
+
+\[ RDS_{cost} = 0.072t \]
+
+\item \textbf{1 T2.Small Elasticache Instance}
+
+Scheduled scans and notifications will operate through a queue-consumer implementation. Amazon's Elasticache service will serve as the queue.
+
+Pricing can be calculated with the following formula where \( t \) is the total time in hours:
+
+\[ ELC_{cost} = 0.034t \]
+
+\item \textbf{API Loadbalancer}
+
+Though only 1 API instance is needed for minimum operations, should that 1 API server fail, Cereus's customers will not be able to access their configurations or audits. Running 2 API instances with a Loadbalancer will prevent all operations from halting due to one server going offline.
+
+Pricing can be calculated with the following formula where \( g_{elb} \) is the size of all traffic in gigabytes and \( t \) is the total time in hours:
+
+\[ ELB_{cost} = 0.025t + 0.008g_{elb} \]
+
+\item \textbf{1 Route53 Hosted Zone}
+
+Route53 is Amazon's domain-name server resolver. Cereus's domain service provider can route requests from our domain to our servers, through Route53, hosted on Amazon.
+
+Pricing can be calculated with the following formula where \( r_{m} \) is the number of requests (per million, up to 1 billion):
+
+\[ R53_{cost} = 0.50 + 0.40r_{m} \]
+
+\end{itemize}
+
+Using the cost formulas defined for each Amazon service, we can calculate our operations costs with the following formula (simplified):
+
+\[
+  I_{cost} = 0.176t + 0.0049tn_{a1s} + 0.0255tn_{a1r} + 0.023g_{s3} + 0.085g_{cf} + 0.045g_{nat} + 0.008g_{elb} + 0.40r_{m} + 0.50
+\]
 
 \subsection{Competitive Analysis}
 
