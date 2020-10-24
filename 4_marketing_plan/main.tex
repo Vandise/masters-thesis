@@ -191,11 +191,15 @@ Our professional services staff can configure and manage our systems to meet you
 
 Though we offer flexible subscriptions for any sized organization that's looking for privacy compliance auditing. It may, however, be difficult to market smaller companies that our services are worth mitigating the risk of being fined. Our customers will primarily be medium-to-large organizations, with multiple websites, who are currently, or will be, working with a consent management system.
 
+\subsection{Demographic Considerations}
+
+The geographic location of our customers and their client-base are some factors to consider when defining the demographics of our customers. The location of our customers and their client-base define the regulations they have to adhere to. Should an organization chooses to restrict their client-base due to data and privacy regulations, our services may not be required.
+
 %========================================================
 
 \section{Proposed Location}
 
-TODO Chapter 2
+Cereus will be incorporated in the United States. There will be no leased or physically owned real estate. Correspondence pertaining to Cereus will operate through a PO Box. 
 
 %========================================================
 
@@ -205,7 +209,17 @@ TODO Chapter 2
 
 \subsection{Operational Costs}
 
-TODO Chapter 2
+https://calculator.aws
+
+aws a1.medium spot instance: 0.0049/hr ( scan servers )
+aws a1.medium reserved instance: 0.0255 ( api servers )
+aws s3 standard ( up to 50tb), 0.023/gb
+aws cloudfront ( first 10tb ), 0.085/gb
+aws NAT gateway: 0.045/hr + 0.045/gb
+aws RDS on demand ( multi-az db.t3.small ): 0.072/hr
+aws elasticache (t3.small): (0.034/hr) 
+aws loadbalancer (api): 0.025/hr + 0.008/gb
+aws route53: 0.50 + 0.40/mil queries (up to 1 billion)
 
 \subsection{Competitive Analysis}
 
