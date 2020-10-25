@@ -205,7 +205,25 @@ Cereus will be incorporated in the United States. There will be no leased or phy
 
 \section{Pricing and Positioning Strategy}
 
-TODO Chapter 2
+Estimated ELB Costs for plan:
+((0.008 * (n_users * api)) + (n_users*2000/1000000)*0.40)
+
+Estimated S3 Costs for plan:
+(0.023 * (n_websites*n_pages*n_scans*0.0000026))
+
+Estimated Network Costs for plan:
+(
+  0.045 * (n_websites*n_pages*n_scans*0.0000026) +
+  0.045 * (n_websites*n_pages*n_scans*0.000001)
+)
+
+=B9*(((B16*(B2*G2))+(((B2*B14)/1000000)*B15)) + (B13*(C2*D2*E2*B12))+((B17 * (C2*D2*E2*B12)) + B13*(C2*D2*E2*B11) + (B18*B2*B19))) + (B22*F2)
+
+=B9*(((B16*(B3*G3))+(((B3*B14)/1000000)*B15)) + (B13*(C3*D3*E3*B12))+((B17 * (C3*D3*E3*B12)) + B13*(C3*D3*E3*B11) + (B18*B3*B19))) + (B22*F3)
+
+=((B16*(B4*G4))+(((B4*B14)/1000000)*B15)) + (B13*(C4*D4*E4*B12))+((B17 * (C4*D4*E4*B12)) + B13*(C4*D4*E4*B11) + (B18*B4*B19)) + (B22*F4)
+
+=((B16*(B5*G5))+(((B5*B14)/1000000)*B15)) + (B13*(C5*D5*E5*B12))+((B17 * (C5*D5*E5*B12)) + B13*(C5*D5*E5*B11) + (B18*B5*B19)) + (B22*F5)
 
 \subsection{Operational Costs}
 
@@ -299,7 +317,7 @@ Using the cost formulas defined for each Amazon service, we can calculate our op
 \]
 
 \noindent
-Preliminary testing estimated that the following variables would account for the auditing of 100 websites on the professional subscription tier:
+Preliminary testing estimated that the following variables would accomodate the auditing of 100 websites on the professional subscription tier:
 
 \begin{itemize}
 
