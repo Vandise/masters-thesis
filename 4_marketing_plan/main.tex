@@ -211,16 +211,15 @@ TODO Chapter 2
 
 Operational costs are broken into two categories: infrastructure and administration. Infrastructure includes all technology requirements to support operations. Administration includes expenses pertaining to wages, marketing, accounting, and professional services.
 
-
 \subsubsection{Infrastructure Costs}
 
-Cereus will manage its infrastructure through Amazon Web Services (AWS). AWS offers an alternative solution to physical infrastructure management at a competitive rate. For minimum operations, Cereus will require the following services from Amazon:
+Cereus will manage its infrastructure through Amazon Web Services (AWS). AWS offers an alternative solution to physical infrastructure management at a competitive rate. Cereus will require the following services from Amazon to support the auditing of 100 websites:
 
 \begin{itemize}
 
 \item \textbf{1 A1.Medium Spot Instance}
 
-The scan servers to collect information from our customer's websites can be reserved spot instances that operate only on demand. These servers come at a discounted rate, but introduce some latency between a customer's audit request and its completion.
+The scan servers to collect information from our customer's websites can be reserved spot instances that operate only on demand. These servers come at a discounted rate, but introduce some latency between a customer's audit request and its completion. Each server is expected to be able to scan up to 10 websites at a time.
 
 Pricing can be calculated with the following formula where \( t \) is time in hours and \( n_{a1s} \) is the number of servers:
 
@@ -292,11 +291,29 @@ Pricing can be calculated with the following formula where \( r_{m} \) is the nu
 
 \end{itemize}
 
+\noindent
 Using the cost formulas defined for each Amazon service, we can calculate our operations costs with the following formula (simplified):
 
 \[
-  I_{cost} = 0.176t + 0.0049tn_{a1s} + 0.0255tn_{a1r} + 0.023g_{s3} + 0.085g_{cf} + 0.045g_{nat} + 0.008g_{elb} + 0.40r_{m} + 0.50
+  C = 0.176t + 0.0049tn_{a1s} + 0.0255tn_{a1r} + 0.023g_{s3} + 0.085g_{cf} + 0.045g_{nat} + 0.008g_{elb} + 0.40r_{m} + 0.50
 \]
+
+\noindent
+Given Amazon's 720 hour billing cycle (30 days) \cite{aws.calc.2020}, estimated starting costs for infrastructure to support the auditing of 100 websites with the following:
+
+\begin{itemize}
+
+\item 2 Scan Servers
+\item 1 Reserved API Instance
+\item 1.5GB S3 storage/mo
+\item 5GB of traffic through Cloudfront
+\item 1GB of traffic through the NAT
+\item 10 million requests
+
+\end{itemize}
+
+\noindent
+results with an estimated monthly cost of \$157.14 per month for infrastructure operations.
 
 \subsection{Competitive Analysis}
 
