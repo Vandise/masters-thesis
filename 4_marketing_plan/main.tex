@@ -203,29 +203,52 @@ Cereus will be incorporated in the United States. There will be no leased or phy
 
 %========================================================
 
-\section{Pricing and Positioning Strategy}
+\section{Pricing and Positioning Strategy} \label{price.position.strat}
 
-Estimated ELB Costs for plan:
-((0.008 * (n_users * api)) + (n_users*2000/1000000)*0.40)
+The pricing of Cereus's products is determined by estimating the profit margin of each pricing tier, excluding professional services. We aim for a profit margin of 90\% (+/-5\%) during our first year. As our company grows, it'll be our goal keep these margins around 12\% as more software, support, and marketing staff are required. 
 
-Estimated S3 Costs for plan:
-(0.023 * (n_websites*n_pages*n_scans*0.0000026))
+To estimate the profit margin for each tier, we monitored the actions of a full professional tier organization over a month during a beta phase. The monitoring revealed an average of about 2,500 API requests per user were made, with an average of 1.2GB of traffic, and the organization scanned 10 websites with 25 pages, twice. 20 notification and web hook events were sent, averaging 1kB in size. Each scan resulted in an average report size of 2.5kB. 
 
-Estimated Network Costs for plan:
-(
-  0.045 * (n_websites*n_pages*n_scans*0.0000026) +
-  0.045 * (n_websites*n_pages*n_scans*0.000001)
-)
+After the beta phase concluded, Cereus's founders created an isolated environment and simulated the actions of the professional organization. 24 hours after the simulation, Amazon's cost explorer identified a spike in projected costs of \$304.72 with an average of \$10.15 per day.
 
-=B9*(((B16*(B2*G2))+(((B2*B14)/1000000)*B15)) + (B13*(C2*D2*E2*B12))+((B17 * (C2*D2*E2*B12)) + B13*(C2*D2*E2*B11) + (B18*B2*B19))) + (B22*F2)
+The cost explorer identified the following components as having the most significant impact in the projected costs. We derived an equation for each of the components, using Amazon's pricing and the features available for each of our subscription tiers (Table \ref{table.cereus.pricing}), to compute the estimated cost. Each equation was able to accurately compute the amount reflected in the cost explorer within a 4\% margin of error.
 
-=B9*(((B16*(B3*G3))+(((B3*B14)/1000000)*B15)) + (B13*(C3*D3*E3*B12))+((B17 * (C3*D3*E3*B12)) + B13*(C3*D3*E3*B11) + (B18*B3*B19))) + (B22*F3)
+\begin{itemize}
 
-=B9*(((B16*(B4*G4))+(((B4*B14)/1000000)*B15)) + (B13*(C4*D4*E4*B12))+((B17 * (C4*D4*E4*B12)) + B13*(C4*D4*E4*B11) + (B18*B4*B19))) + (B22*F4)
+\item Loadbalancer (API) Network Traffic
 
-=B9*(((B16*(B5*G5))+(((B5*B14)/1000000)*B15)) + (B13*(C5*D5*E5*B12))+((B17 * (C5*D5*E5*B12)) + B13*(C5*D5*E5*B11) + (B18*B5*B19))) + (B22*F5)
+\( ELB_{est} = (0.008*(N_{users}*B_{api})) + (N_{users}*2500/1,000,000)*0.40) \)
 
-\subsection{Operational Costs}
+\item Cloudfront Network Traffic
+
+\( CF_{est} = (0.085 * N_{users} * 1.2_{gb}) \)
+
+\item S3 Storage Costs
+
+\(S3_{est} = (0.023 * (N_{websites} * N_{pages} * N_{scans} * 0.0000026_{gb}))\)
+
+\item NAT Gateway Traffic
+
+\(
+  NAT_{est} = (0.045 * (N_{websites} * N_{pages} * N_{scans} * 0.0000026_{gb})) + \\
+  (0.045 * (N_{websites} * N_{pages} * N_{scans} * 0.000001_{gb}))
+\)
+
+\end{itemize}
+
+The costs between our queue, email, scan, database backup, and audit systems were also reflected in the cost explorer. Due to these systems being part of our standard infrastructure operations (Section \ref{section.operational.costs}), the costs associated with these had to be estimated.
+
+A second test against the websites a beta tester belonging to the personal tier was conducted to help determine a constant value for the additional costs associated with our internal systems. Report sizes were smaller due to the tier being limited to a total of 25 pages, in contrast to 250 in the professional tier -- but only within a few hundred bytes due to the file compression we apply to our audits. Our estimated costs increased \$2.04 per day with this test.
+
+Given the two tests, a constant value \(C\) equal to 19.992 (rounded to 20), multiplied by the sum of the associated cost of each component, estimated the monthly costs associated with both tests within a 2\% margin of error. Giving us the equation:
+
+\[
+  Plan_{cost} = C * (ELB_{est} + CF_{est} + S3_{est} + NAT_{est})
+\]
+
+%%
+
+\subsection{Operational Costs} \label{section.operational.costs}
 
 Operational costs are broken into two main categories: infrastructure and administration. Infrastructure includes all technology requirements to support operations. Administration includes expenses pertaining to wages, marketing, accounting, and professional services.
 
@@ -357,11 +380,39 @@ Cereus's professional services and support will be ran by the three founders wit
 
 \subsection{Competitive Analysis}
 
-TODO Chapter 2
+TODO Chapter 2.
+
+%%
 
 \subsection{Return on Investment}
 
-TODO Chapter 2
+Table \ref{table.cereus.breakeven} highlights each of Cereus's subscription tiers. Each column reflects the tier's pricing, the estimated profit per month (using the equation described in Section \ref{price.position.strat}), the estimated profit margin (without professional services), and the number of subscriptions required to break-even.
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|X|X|X|X|X|X|}
+    Tier & Price & Cost & Profit & Margin & Break-Even \\
+  
+    \hline
+  
+    Free & \$0.00 & \$0.10 & -\$0.10 & 0 & N/A \\
+
+    \hline
+  
+    Personal & \$39.00 & \$2.06 & \$36.94 & 0.947\% & 5 \\ 
+
+    \hline
+  
+    Professional & \$99.00 & \$10.32 & \$88.68 & 0.896\% & 2 \\ 
+
+    \hline
+
+    Enterprise & \$1,299.00 & \$55.86 & \$1,243.00 & 0.957\% & 1 \\ 
+
+  \end{tabularx}
+  \caption{Cereus subscription break-even analysis.}
+  \label{table.cereus.breakeven}
+\end{table}
 
 %========================================================
 

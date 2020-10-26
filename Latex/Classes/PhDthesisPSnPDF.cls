@@ -424,6 +424,7 @@ Requirements for the Degree Of
 \usepackage{adjustbox}
 \usepackage{tabularx}
 \usepackage{amsmath}
+\usepackage{float}
 
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\xmark}{\ding{55}}%
