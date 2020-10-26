@@ -425,6 +425,7 @@ Requirements for the Degree Of
 \usepackage{tabularx}
 \usepackage{amsmath}
 \usepackage{float}
+\usepackage{xcolor}
 
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\xmark}{\ding{55}}%
