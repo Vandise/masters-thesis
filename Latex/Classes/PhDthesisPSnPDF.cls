@@ -178,12 +178,16 @@
 \setlength{\evensidemargin}{0.5cm}
 
 \setlength{\topmargin}{1mm}
+
 %\setlength{\headheight}{1.36cm}
 \setlength{\headheight}{0.25cm}
+
 %\setlength{\headsep}{1.00cm}
 \setlength{\headsep}{0.00cm}
+
 %\setlength{\textheight}{22.84cm}
 \setlength{\textheight}{23.0cm}
+
 \setlength{\textwidth}{15.5cm}
 \setlength{\marginparsep}{1mm}
 \setlength{\marginparwidth}{3cm}
