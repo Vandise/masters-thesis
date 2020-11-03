@@ -3,10 +3,7 @@ require 'enumerator'
 
 srand(12)
 
-#CPM
 LN_CPM = 20000 # 131.8, 0.39 click rate, 6.59/1k impressions
-
-# 2%
 GG_CPM = 42000 # 118 , 2% click rate, 2.80/1000 impressions
 
 VISITORS = (LN_CPM*0.0039 + GG_CPM*0.02)
