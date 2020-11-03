@@ -42,7 +42,7 @@ subscriptions = []
 end
 
 tiers = ['free','personal','professional','enterprise']
-tier_revenues = [-0.10, 36.94, 88.68, 1243.00]
+tier_revenues = [-0.10, 39.00, 99.00, 1299.00]
 
 CSV.open('./explore/forecast.csv', 'wb') do |csv|
   csv << ['subscription', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', 'total revenue']
