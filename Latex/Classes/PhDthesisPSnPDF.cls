@@ -430,16 +430,19 @@ Requirements for the Degree Of
 \usepackage{amsmath}
 \usepackage{float}
 \usepackage{xcolor}
-%\usepackage{fontspec}
-%\setmainfont{Times New Roman}
+%\usepackage{mathptmx}
 
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\xmark}{\ding{55}}%
 
+
 {\newpage\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}}
 
+%%%% times new roman
+\usepackage{lmodern}
+
 \titleformat{\chapter}
-{\normalfont\Huge\bfseries}
+{\normalfont\LARGE\bfseries}
 {\thechapter}{0.75em}{}
 \titlespacing*{\chapter}{0pt}{-50pt}{20pt}
 
