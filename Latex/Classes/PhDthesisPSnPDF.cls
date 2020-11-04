@@ -217,7 +217,7 @@
 \fancyhf{}
 %\fancyhead[RO]{\bfseries\rightmark}
 %\fancyhead[LE]{\bfseries\leftmark}
-\fancyfoot[C]{\thepage}
+\fancyfoot[R]{\thepage}
 %\renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
@@ -431,6 +431,7 @@ Requirements for the Degree Of
 \usepackage{float}
 \usepackage{xcolor}
 %\usepackage{mathptmx}
+\usepackage{enumerate}
 
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\xmark}{\ding{55}}%
