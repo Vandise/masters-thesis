@@ -177,13 +177,13 @@
 \setlength{\oddsidemargin}{0.5cm}
 \setlength{\evensidemargin}{0.5cm}
 
-\setlength{\topmargin}{1mm}
+\setlength{\topmargin}{-0.5in}
 
 %\setlength{\headheight}{1.36cm}
 \setlength{\headheight}{0.25cm}
 
 %\setlength{\headsep}{1.00cm}
-\setlength{\headsep}{0.00cm}
+\setlength{\headsep}{1cm}
 
 %\setlength{\textheight}{22.84cm}
 \setlength{\textheight}{23.0cm}
@@ -217,26 +217,58 @@
 \fancyhf{}
 %\fancyhead[RO]{\bfseries\rightmark}
 %\fancyhead[LE]{\bfseries\leftmark}
-\fancyfoot[R]{\thepage}
+%\fancyfoot[R]{\thepage}
+\fancyfoot{}
+\fancyhead[L]{{\color{gray} \@title}}
+\fancyhead[R]{{\color{gray} \thepage}}
+
 %\renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 %\addtolength{\headheight}{0.5pt}
 \fancypagestyle{plain}{
-  \fancyhead{}
-  \renewcommand{\headrulewidth}{0pt}
+  %\fancyhead{}
+  \fancyhf{}%
+  \fancyhead[L]{{\color{gray} \@title}}
+  \fancyhead[R]{{\color{gray} \thepage}}
+  \fancyfoot{}
+  %\renewcommand{\headrulewidth}{0pt}
 }
 
 
+%%%
+% Title Page
+%%%
+\fancypagestyle{titlepage}{%
+  \setlength{\headsep}{2cm}
+  \fancyhf{}%
+  \fancyhead[L]{{\color{gray} Running head: \@title}}
+  \fancyhead[R]{{\color{gray} \thepage}}
+  \fancyfoot{}
+  %\renewcommand{\headrulewidth}{0pt}
+}
 
-
+%%%
+% Dedication Page
+%%%
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{empty}{
+  \fancyhf{}%
+  \fancyhead[L]{{\color{gray} \@title}}
+  \fancyhead[R]{{\color{gray} \thepage}}
+  \fancyfoot{}
+  %\renewcommand{\headrulewidth}{0pt}
+}
 
 %:-------------------------- title page layout -----------------------
 
 % starts roman page numbering until chapter 1
 % important to avoid two pages numbered 1 and 2 which may cause bad links
 % bug: cover i + back side ii and then numbering restarts with i; should be iii
-\renewcommand{\thepage}{\roman{page}}
+
+%\renewcommand{\thepage}{\roman{page}}
+\renewcommand{\thepage}{\arabic{page}}
 
 \newcommand{\submittedtext}{{A Thesis Submitted in Fulfillment of the
 Requirements for the Degree Of
@@ -272,7 +304,7 @@ Requirements for the Degree Of
 \begin{alwayssingle}
     \renewcommand{\footnotesize}{\small}
     \renewcommand{\footnoterule}{\relax}
-    \thispagestyle{empty}
+    \thispagestyle{titlepage}
 %  \null\vfill
   \begin{center}
     { \Huge {\bfseries {\@title}} \par}
@@ -309,6 +341,9 @@ Requirements for the Degree Of
 \newenvironment{dedication}
 {\begin{alwayssingle}
   \pagestyle{empty}
+  \fancyhf{}
+  \fancyhead[L]{{\color{gray} \@title}}
+  \fancyhead[R]{{\color{gray} \thepage}}
   \begin{center}
   \vspace*{1.5cm}
   {\LARGE }
@@ -316,7 +351,6 @@ Requirements for the Degree Of
   \vspace{0.5cm}
   \begin{quote} \begin{center}}
 {\end{center} \end{quote} \end{alwayssingle}}
-
 
 % ACKNOWLEDGEMENTS
 %
@@ -437,7 +471,7 @@ Requirements for the Degree Of
 \newcommand{\xmark}{\ding{55}}%
 
 
-{\newpage\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}}
+%{\newpage\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}}
 
 %%%% times new roman
 \usepackage{lmodern}
@@ -450,7 +484,7 @@ Requirements for the Degree Of
 \titleformat{\chapter}
 {\normalfont\LARGE\bfseries\centering}
 {}{}{}
-\titlespacing*{\chapter}{0pt}{-50pt}{20pt}
+\titlespacing*{\chapter}{0pt}{-20pt}{20pt}
 
 \renewcommand{\chaptername}{} % uncomment to print only "1" not "Chapter 1"
 
