@@ -441,9 +441,14 @@ Requirements for the Degree Of
 %%%% times new roman
 \usepackage{lmodern}
 
+%\titleformat{\chapter}
+%{\normalfont\LARGE\bfseries}
+%{\thechapter}{0.75em}{}
+%\titlespacing*{\chapter}{0pt}{-50pt}{20pt}
+
 \titleformat{\chapter}
 {\normalfont\LARGE\bfseries}
-{\thechapter}{0.75em}{}
+{}{}{}
 \titlespacing*{\chapter}{0pt}{-50pt}{20pt}
 
 \renewcommand{\chaptername}{} % uncomment to print only "1" not "Chapter 1"

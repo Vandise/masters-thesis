@@ -98,7 +98,7 @@
 
 %: ----------------------- contents ------------------------
 
-\setcounter{secnumdepth}{3} % organisational level that receives a numbers
+\setcounter{secnumdepth}{0} % organisational level that receives a numbers
 \setcounter{tocdepth}{1}    % print table of contents for level 3
 \tableofcontents            % print the table of contents
 
@@ -108,6 +108,8 @@
 %: --------------------------------------------------------------
 %:                  MAIN DOCUMENT SECTION
 % --------------------------------------------------------------
+
+%%%%
 
 %\makeatletter
 %\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
@@ -149,6 +151,8 @@
 \include{8_financial_plan/main}
 
 %: --------------------------------------------------------------
+
+%
 
 \include{9_next_steps/main}
 
