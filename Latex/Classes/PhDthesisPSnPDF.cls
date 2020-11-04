@@ -447,7 +447,7 @@ Requirements for the Degree Of
 %\titlespacing*{\chapter}{0pt}{-50pt}{20pt}
 
 \titleformat{\chapter}
-{\normalfont\LARGE\bfseries}
+{\normalfont\LARGE\bfseries\centering}
 {}{}{}
 \titlespacing*{\chapter}{0pt}{-50pt}{20pt}
 
