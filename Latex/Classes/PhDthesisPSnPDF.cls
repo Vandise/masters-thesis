@@ -219,7 +219,7 @@
 %\fancyhead[LE]{\bfseries\leftmark}
 %\fancyfoot[R]{\thepage}
 \fancyfoot{}
-\fancyhead[L]{{\color{gray} \@title}}
+\fancyhead[L]{\textsc {\color{gray} \@title}}
 \fancyhead[R]{{\color{gray} \thepage}}
 
 %\renewcommand{\headrulewidth}{0.5pt}
@@ -229,7 +229,7 @@
 \fancypagestyle{plain}{
   %\fancyhead{}
   \fancyhf{}%
-  \fancyhead[L]{{\color{gray} \@title}}
+  \fancyhead[L]{\textsc {\color{gray} \textsc{\@title}}}
   \fancyhead[R]{{\color{gray} \thepage}}
   \fancyfoot{}
   %\renewcommand{\headrulewidth}{0pt}
@@ -242,7 +242,7 @@
 \fancypagestyle{titlepage}{%
   \setlength{\headsep}{2cm}
   \fancyhf{}%
-  \fancyhead[L]{{\color{gray} Running head: \@title}}
+  \fancyhead[L]{{\color{gray} Running head: \textsc{\@title}}}
   \fancyhead[R]{{\color{gray} \thepage}}
   \fancyfoot{}
   %\renewcommand{\headrulewidth}{0pt}
@@ -255,7 +255,7 @@
 \renewcommand{\footrulewidth}{0pt}
 \fancypagestyle{empty}{
   \fancyhf{}%
-  \fancyhead[L]{{\color{gray} \@title}}
+  \fancyhead[L]{{\color{gray} \textsc{\@title}}}
   \fancyhead[R]{{\color{gray} \thepage}}
   \fancyfoot{}
   %\renewcommand{\headrulewidth}{0pt}
@@ -342,7 +342,7 @@ Requirements for the Degree Of
 {\begin{alwayssingle}
   \pagestyle{empty}
   \fancyhf{}
-  \fancyhead[L]{{\color{gray} \@title}}
+  \fancyhead[L]{{\color{gray} \textsc{\@title}}}
   \fancyhead[R]{{\color{gray} \thepage}}
   \begin{center}
   \vspace*{1.5cm}
@@ -466,6 +466,7 @@ Requirements for the Degree Of
 \usepackage{xcolor}
 %\usepackage{mathptmx}
 \usepackage{enumerate}
+\usepackage{indentfirst}
 
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\xmark}{\ding{55}}%
@@ -487,4 +488,6 @@ Requirements for the Degree Of
 \titlespacing*{\chapter}{0pt}{-20pt}{20pt}
 
 \renewcommand{\chaptername}{} % uncomment to print only "1" not "Chapter 1"
+
+%\setlength{\parindent}{5ex}
 
