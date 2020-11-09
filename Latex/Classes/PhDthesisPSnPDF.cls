@@ -261,6 +261,11 @@
   %\renewcommand{\headrulewidth}{0pt}
 }
 
+
+%:-------------------------- document font -----------------------
+
+\usepackage{lmodern}
+
 %:-------------------------- title page layout -----------------------
 
 % starts roman page numbering until chapter 1
@@ -473,9 +478,6 @@ Requirements for the Degree Of
 
 
 %{\newpage\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}}
-
-%%%% times new roman
-\usepackage{lmodern}
 
 %\titleformat{\chapter}
 %{\normalfont\LARGE\bfseries}
