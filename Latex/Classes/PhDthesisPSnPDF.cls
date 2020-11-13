@@ -493,3 +493,10 @@ Requirements for the Degree Of
 
 %\setlength{\parindent}{5ex}
 
+\DeclareCaptionLabelSeparator*{spaced}{\\[1ex]}
+\captionsetup[table]{textfont=it,format=plain,justification=justified,
+  singlelinecheck=false,labelsep=spaced,skip=10pt}
+
+\DeclareCaptionLabelSeparator*{spaced}{\\[1ex]}
+\captionsetup[figure]{textfont=it,textalign=left,format=plain,justification=justified,
+  singlelinecheck=false,labelsep=spaced,skip=10pt}

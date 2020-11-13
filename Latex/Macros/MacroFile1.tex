@@ -5,12 +5,15 @@
 % parameters 1:filename, 2:title, 3:description and label
 \newcommand{\figuremacro}[3]{
 	\begin{figure}[htbp]
+		\caption[#2]{\emph{#2}}
 		\centering
 		\includegraphics[width=1\textwidth]{#1}
-		\caption[#2]{\textbf{#2} - #3}
+		\floatfoot{\begin{flushleft} \emph{Note.} #3 \end{flushleft}}
 		\label{#1}
 	\end{figure}
 }
+
+%
 
 % insert a centered figure with caption and description AND WIDTH
 % parameters 1:filename, 2:title, 3:description and label, 4: textwidth
@@ -26,9 +29,10 @@
 
 \newcommand{\figuremacrorotate}[4]{
 \begin{sidewaysfigure}
+    \caption[#2]{\emph{#2}}
     \centering
     \includegraphics[width=#4\textwidth]{#1}  
-    \caption[#2]{\textbf{#2} - #3}
+    \floatfoot{\begin{flushleft} \emph{Note.} #3 \end{flushleft}}
     \label{#1}
 \end{sidewaysfigure}
 }
