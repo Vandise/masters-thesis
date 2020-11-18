@@ -264,7 +264,8 @@
 
 %:-------------------------- document font -----------------------
 
-\usepackage{lmodern}
+%\usepackage{lmodern}
+\fontfamily{cmr}\selectfon
 
 %:-------------------------- title page layout -----------------------
 
