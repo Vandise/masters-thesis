@@ -276,7 +276,7 @@
 %\renewcommand{\thepage}{\roman{page}}
 \renewcommand{\thepage}{\arabic{page}}
 
-\newcommand{\submittedtext}{{A Thesis Submitted in Fulfillment of the
+\newcommand{\submittedtext}{{A Thesis Submitted in Partial Fulfillment of the
 Requirements for the Degree Of
 }}
 
